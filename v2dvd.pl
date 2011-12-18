@@ -1,10 +1,15 @@
 #!/usr/bin/perl
 
+# ...........................................................................
+# Copyright (C) 2011 Gilberto "Velenux" Ficara <g.ficara@oltrelinux.com>
+#
+# Released under the GNU GPL license v3.
+#
+
 use strict;
 use warnings;
 use Carp;
 use File::Temp qw/ tempfile tempdir /; # standard distribution
-
 
 # binaries (change as needed)
 my $bin_ffmpeg      = '/usr/bin/ffmpeg';
@@ -29,6 +34,10 @@ if (! -x $bin_ffmpeg or ! -x $bin_dvdauthor or ! -x $bin_genisoimage) {
 
 
 # subs
+
+#
+# print help message
+#
 sub print_help {
   print "Usage:
   $0 <file1> [<file2> <file3> ...]
@@ -116,6 +125,11 @@ sub add_dvdauthor_string {
 # ----------
 # main cycle
 # ----------
+
+if @ARGV < 1 {
+  &print_help();
+  exit 1;
+}
 
 # create subdirs
 mkdir("$dir/dvd") or carp "Can't create dvd dir in $dir";
