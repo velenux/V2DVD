@@ -1,0 +1,12 @@
+V2DVD is a simple script leveraging powerful command line tools to create a 
+video DVD from a bunch of video files.
+
+Running it, requires:
+ - FFMpeg
+ - DVDAuthor
+ - genisoimage
+
+If you install the programs in a different path than /usr/bin, change the
+paths at the top of the script file.
+
+
